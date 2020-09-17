@@ -1,0 +1,25 @@
+.empty{
+  padding:auto;
+  margin:100px;
+}
+.header{
+  text-align:center;
+  font-size: 100px;
+  letter-spacing: 3px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: pink;
+}
+.bod{
+  background-color: black;
+  height: 100%;
+}
+.textbox{
+  text-align: center;
+  width: 300px;
+  border: 15px solid grey;
+  padding: 500px;
+  margin: auto;
+}
+.employee{
+  color:whitesmoke;
+}
