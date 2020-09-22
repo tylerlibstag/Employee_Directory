@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import API from "./utils/API"
+import EmployeeTableBody from "./Components/body"
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
@@ -14,7 +15,8 @@ class App extends Component {
   state = {
     employees: [],
     query: "",
-    results: []
+    results: [],
+    filteredEmployees:[]
 
   };
 
@@ -22,7 +24,7 @@ class App extends Component {
     API.search()
       .then(res => {
         this.setState({ employees: res.data.results, filteredEmployees: res.data.results });
-        console.log(this.state.employees);
+        console.log(res.data.results);
       })
       .catch(err => console.log(err));
   };
@@ -99,7 +101,7 @@ class App extends Component {
 
       <div>
         <h1 className="header">Employee Directory</h1>
-        <input onChange={this.handleChange}></input>
+        <input value={this.state.query} onChange={this.handleChange}></input>
         <div className="textbox">
           {this.state.employees.filter((employee) => {
             var name = employee.first_name + " " + employee.last_name
@@ -131,16 +133,33 @@ class App extends Component {
 
     var filteredEmployees = this.state.employees.filter((employee) => {
       var name = employee.first_name + " " + employee.last_name
-      if (query === name.substr(0, 1)) {
-            filteredEmployees.push(name.substr(0, 1))
+      console.log(filteredEmployees)
+      if (name.indexOf(query) !== -1) {
+            return employee
           }
-      console.log(filteredEmployees, "hey")
-      return name.includes(query);
+    
+  
     })
     
-    this.setState({ results: filteredEmployees })
+    this.setState({ filteredEmployees: filteredEmployees, query:query })
 
   }
+  // handleChange = (event) => {
+  //   var query = event.target.value
+
+  //   var filteredEmployees = this.state.employees.filter((employee) => {
+      
+  //     var name = employee.first_name + " " + employee.last_name
+  //     console.log(name,"this name")
+  //     if(name.indexOf(query) !== -1)
+  //     {return filteredEmployees}
+      
+  //     //return name.includes(query);
+  //   })
+    
+  //   this.setState({ name: filteredEmployees })
+
+  // }
 
 }
 export default App;
