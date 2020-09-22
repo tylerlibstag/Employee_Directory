@@ -15,11 +15,15 @@
 }
 .textbox{
   text-align: center;
-  width: 300px;
+  width: auto;
   border: 15px solid grey;
-  padding: 500px;
+  padding: auto;
   margin: auto;
 }
 .employee{
   color:whitesmoke;
 }
+.td{
+  color:whitesmoke;
+}
+
