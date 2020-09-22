@@ -26,4 +26,13 @@
 .td{
   color:whitesmoke;
 }
+.Search{
+  text-align: center;
+  margin: 0 auto;
+  display: block
+}
+.order{
+  text-align: right;
+  color:whitesmoke;
 
+}
